@@ -10,6 +10,7 @@ import {
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import gifFile from "../assets/HomeGif.gif";
 
 // Memoized Components
 const StatusBadge = memo(() => (
@@ -277,13 +278,17 @@ const Home = () => {
                   }`}
                 ></div>
 
-                {/* <div
+                <div
                   className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
                     isHovering ? "scale-105" : "scale-100"
                   }`}
                 >
-                  <DotLottieReact {...lottieOptions} />
-                </div> */}
+                  <img
+                    src={gifFile}
+                    alt="Animation"
+                    className="hidden md:block w-full lg:w-auto"
+                  />
+                </div>
               </div>
             </div>
           </div>
