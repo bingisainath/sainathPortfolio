@@ -16,11 +16,21 @@ const Header = memo(() => (
   <div className="text-center lg:mb-8 mb-2 px-[5%]">
     <div className="inline-block relative group">
       <h2
-        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-400"
+        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-white-400"
         data-aos="zoom-in-up"
         data-aos-duration="600"
       >
-        About Me
+        <span
+          style={{
+            color: "gray",
+            backgroundImage: "linear-gradient(45deg, gray 10%, lightgray 93%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          About Me
+        </span>
       </h2>
     </div>
     <p
@@ -131,7 +141,7 @@ const AboutPage = () => {
     });
   }, []);
 
-  // Memoized stats data 
+  // Memoized stats data
   const statsData = useMemo(
     () => [
       {

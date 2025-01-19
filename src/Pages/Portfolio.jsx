@@ -251,7 +251,7 @@ export default function FullWidthTabs() {
               right: 0,
               bottom: 0,
               background:
-                "linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%)",
+                "linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.05) 80%)",
               backdropFilter: "blur(10px)",
               zIndex: 0,
             },
