@@ -242,7 +242,7 @@ const Home = () => {
                   data-aos-delay="1400"
                 >
                   <CTAButton
-                    href="#Portofolio"
+                    href="#Portfolio"
                     text="Projects"
                     icon={ExternalLink}
                   />
