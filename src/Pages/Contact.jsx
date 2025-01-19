@@ -121,19 +121,20 @@ const ContactPage = () => {
         </p>
       </div>
 
+      {/* TODO : Make Auto MArgin for Mobile phone rather  */}
       <div
-        className="h-auto m-10 flex items-center justify-center px-[5%] md:px-0"
+        className="h-auto m-3 flex items-center justify-center px-[5%] md:px-0"
         id="Contact"
       >
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div
             data-aos="fade-right"
             data-aos-duration="1200"
-            className="bg-black/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-300 hover:shadow-white/10"
+            className="bg-black/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-300 border-2 border-gray-600 hover:border-gray-200 hover:shadow-white/20 hover:scale-105"
           >
             <div className="flex justify-between items-start mb-8">
               <div>
-                <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+                <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 ">
                   Get in Touch
                 </h2>
                 <p className="text-gray-500">
@@ -165,7 +166,7 @@ const ContactPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className="w-full p-4 pl-12 bg-black/20 rounded-xl border border-gray-300 placeholder-gray-500 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 hover:border-black disabled:opacity-50"
+                  className="w-full p-4 pl-12 bg-black/20 rounded-xl border border-gray-700 placeholder-gray-500 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 hover:border-white disabled:opacity-50"
                   required
                 />
               </div>
@@ -182,7 +183,7 @@ const ContactPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className="w-full p-4 pl-12 bg-black/20 rounded-xl border border-gray-300 placeholder-gray-500 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 hover:border-black disabled:opacity-50"
+                  className="w-full p-4 pl-12 bg-black/20 rounded-xl border border-gray-700 placeholder-gray-500 text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 hover:border-white disabled:opacity-50"
                   required
                 />
               </div>
@@ -198,7 +199,7 @@ const ContactPage = () => {
                   value={formData.message}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className="w-full resize-none p-4 pl-12 bg-black/20 rounded-xl border border-gray-300 placeholder-gray-500 text-gray-400  focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 hover:border-black h-[9.9rem] disabled:opacity-50"
+                  className="w-full resize-none p-4 pl-12 bg-black/20 rounded-xl border border-gray-700 placeholder-gray-500 text-gray-400  focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 hover:border-white h-[9.9rem] disabled:opacity-50"
                   required
                 />
               </div>
@@ -207,7 +208,7 @@ const ContactPage = () => {
                 data-aos-delay="400"
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-black to-gray-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-black/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full bg-gradient-to-r from-gray-800 to-gray-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-white/10 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 <Send className="w-5 h-5" />
                 {isSubmitting ? "Sending..." : "Send Message"}
@@ -216,6 +217,22 @@ const ContactPage = () => {
           </div>
 
           <div
+            data-aos="fade-left"
+            data-aos-duration="1200"
+            className="bg-black/10 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-300 flex flex-col justify-center items-center border-2 border-gray-600 hover:border-gray-200 hover:shadow-white/20 hover:scale-105"
+          >
+            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+              Follow Me
+            </h2>
+            <p className="text-gray-500 mb-6 text-center">
+              Connect with me on my social media platforms.
+            </p>
+            <div className="mt-10 pt-6 border-t border-gray-300 flex justify-center space-x-6">
+              <SocialLinks />
+            </div>
+          </div>
+
+          {/* <div
             data-aos="fade-left"
             data-aos-duration="1200"
             className="bg-black/10 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-300 hover:shadow-white/10 flex flex-col justify-center items-center"
@@ -229,7 +246,7 @@ const ContactPage = () => {
             <div className="mt-10 pt-6 border-t border-gray-300 flex justify-center space-x-6">
               <SocialLinks />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
