@@ -90,7 +90,6 @@ const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
-
   return (
     <>
       <div className="text-center lg:mt-[5%] mt-10 mb-2 sm:px-0 px-[5%]">
@@ -121,7 +120,7 @@ const ContactPage = () => {
         </p>
       </div>
 
-      {/* TODO : Make Auto MArgin for Mobile phone rather  */}
+      {/* TODO : Make Auto Margin for Mobile phone rather  */}
       <div
         className="h-auto m-3 flex items-center justify-center px-[5%] md:px-0"
         id="Contact"
@@ -145,8 +144,6 @@ const ContactPage = () => {
             </div>
 
             <form
-              action="https://formsubmit.co/ekizulfarrachman@gmail.com"
-              method="POST"
               onSubmit={handleSubmit}
               className="space-y-6"
             >
@@ -227,7 +224,7 @@ const ContactPage = () => {
             <p className="text-gray-500 mb-6 text-center">
               Connect with me on my social media platforms.
             </p>
-            <div className="mt-10 pt-6 border-t border-gray-300 flex justify-center space-x-6">
+            <div className="w-full mt-10 pt-6 border-t border-gray-300 flex justify-center space-x-6">
               <SocialLinks />
             </div>
           </div>
