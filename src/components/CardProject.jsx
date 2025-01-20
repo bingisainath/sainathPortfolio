@@ -26,16 +26,22 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-black opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
 
         <div className="relative p-5 z-10">
-          <div className="relative overflow-hidden rounded-lg">
+          <div className="relative overflow-hidden rounded-lg w-full h-48">
+            {" "}
+            {/* Added fixed height */}
             <img
               src={Img}
               alt={Title}
+              loading="lazy" 
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
             />
           </div>
 
-          <div className="mt-4 space-y-3">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 bg-clip-text text-transparent">
+          <div className="mt-4 space-y-">
+            <h3
+              className="text-xl font-semibold bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 bg-clip-text text-transparent"
+              style={{ height: "65px" }}
+            >
               {Title}
             </h3>
 

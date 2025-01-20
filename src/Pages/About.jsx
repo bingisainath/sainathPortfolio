@@ -1,4 +1,4 @@
-import React, { useEffect, memo, useMemo } from "react";
+import React, { useEffect, memo, useMemo, useState } from "react";
 import {
   FileText,
   Code,
@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { db, collection } from "../firebase";
+import { getDocs, addDoc } from "firebase/firestore";
 
 // Memoized Components
 const Header = memo(() => (
@@ -115,9 +117,11 @@ const StatCard = memo(
 );
 
 const AboutPage = () => {
+  const [resumeLink, setResumeLink] = useState("");
+
   // Memoized calculations
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
-    const startDate = new Date("2021-11-06");
+    const startDate = new Date("2022-05-07");
     const today = new Date();
     const experience =
       today.getFullYear() -
@@ -128,8 +132,8 @@ const AboutPage = () => {
         : 0);
 
     return {
-      totalProjects: 4, // Example data
-      totalCertificates: 6, // Example data
+      totalProjects: 5, // Example data
+      totalCertificates: 2, // Example data
       YearExperience: experience,
     };
   }, []);
@@ -168,6 +172,27 @@ const AboutPage = () => {
     ],
     [totalProjects, totalCertificates, YearExperience]
   );
+
+  const handleFetchCV = async () => {
+    try {
+      const projectCollection = collection(db, "resume");
+      const querySnapshot = await getDocs(projectCollection);
+      // Assuming the "resume" collection has a document with a field "link"
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        if (data?.link) {
+          setResumeLink(data.link);
+        }
+      });
+    } catch (e) {
+      console.error("Error fetching resume link:", e);
+    }
+  };
+
+  // Fetch resume link on component mount
+  useEffect(() => {
+    handleFetchCV();
+  }, []);
 
   return (
     <div
@@ -209,13 +234,15 @@ const AboutPage = () => {
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
-                href="https://drive.google.com/file/d/1QpQbY_nq3u379FWdeSOmLruUct4cpKAs/view?usp=sharing"
+                // href="https://drive.google.com/file/d/1QpQbY_nq3u379FWdeSOmLruUct4cpKAs/view?usp=sharing"
+                href={resumeLink || "#"}
                 className="w-full lg:w-auto"
               >
                 <button
                   data-aos="fade-up"
                   data-aos-duration="800"
                   className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gray-800 text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl"
+                  disabled={!resumeLink}
                 >
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
                 </button>

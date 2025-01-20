@@ -15,11 +15,11 @@ import gifFile from "../assets/HomeGif.gif";
 // Memoized Components
 const StatusBadge = memo(() => (
   <div
-    className="inline-block animate-float lg:mx-0"
+    className="inline-block animate-float lg:mx-0 "
     data-aos="zoom-in"
     data-aos-delay="400"
   >
-    <div className="relative group">
+    <div className="relative group ">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-500 to-gray-300 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
         <span className="bg-gradient-to-r from-gray-500 to-gray-300 text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
@@ -32,7 +32,7 @@ const StatusBadge = memo(() => (
 ));
 
 const MainTitle = memo(() => (
-  <div className="space-y-2 ml-3" data-aos="fade-up" data-aos-delay="600">
+  <div className="space-y-2 ml-10" data-aos="fade-up" data-aos-delay="600">
     <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white">
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-gray-500 to-gray-300 blur-2xl opacity-20"></span>
@@ -95,7 +95,7 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Network & Telecom Student", "Tech Enthusiast"];
+const WORDS = ["React & React Native Developer", "AI and Tech Enthusiast", "MERN Stack Expert"];
 const TECH_STACK = [
   "React",
   "React-Native",
@@ -164,24 +164,6 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
-  // Lottie configuration
-  const lottieOptions = {
-    //https://lottie.host/embed/adddb26c-c05f-415a-a1f9-a32ab3201e9f/vfzqcxE2L2.json
-    src: "https://lottie.host/52741dac-c678-423c-8964-e9bb8ce9ac45/e847oepzTm.lottie",
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-      progressiveLoad: true,
-    },
-    style: { width: "100%", height: "100%" },
-    className: `w-full h-full transition-all duration-500 ${
-      isHovering
-        ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2"
-        : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
-    }`,
-  };
-
   return (
     <div className="max-h-screen bg-black text-white overflow-hidden" id="Home">
       <div
@@ -198,14 +180,14 @@ const Home = () => {
               data-aos-delay="200"
             >
               <div className="space-y-4 sm:space-y-6">
-                <div className="mt-14 pt-5 pl-3">
+                <div className="mt-14 pt-5 pl-11">
                   <StatusBadge />
                 </div>
                 <MainTitle />
 
                 {/* Typing Effect */}
                 <div
-                  className="h-8 ml-3 flex items-center"
+                  className="h-8 ml-11 flex items-center"
                   data-aos="fade-up"
                   data-aos-delay="800"
                 >
@@ -217,17 +199,17 @@ const Home = () => {
 
                 {/* Description */}
                 <p
-                  className="text-base ml-3 md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
+                  className="text-base ml-11 md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                   data-aos="fade-up"
                   data-aos-delay="1000"
                 >
-                  Creating Innovative, Functional, and User-Friendly Websites
-                  for Digital Solutions.
+                  Building Scalable, Engaging, and User-Centric Applications
+                  with Expertise in React and React Native.
                 </p>
 
                 {/* Tech Stack */}
                 <div
-                  className="ml-3 flex flex-wrap gap-3 justify-start"
+                  className="ml-11 flex flex-wrap gap-3 justify-start"
                   data-aos="fade-up"
                   data-aos-delay="1200"
                 >
@@ -238,7 +220,7 @@ const Home = () => {
 
                 {/* CTA Buttons */}
                 <div
-                  className="flex flex-row ml-3 gap-3 w-full justify-start"
+                  className="flex flex-row ml-11 gap-3 w-full justify-start"
                   data-aos="fade-up"
                   data-aos-delay="1400"
                 >
@@ -252,7 +234,7 @@ const Home = () => {
 
                 {/* Social Links */}
                 <div
-                  className="hidden sm:flex ml-3 gap-4 justify-start"
+                  className="hidden sm:flex ml-11 gap-4 justify-start"
                   data-aos="fade-up"
                   data-aos-delay="1600"
                 >
@@ -271,7 +253,7 @@ const Home = () => {
               data-aos="fade-left"
               data-aos-delay="600"
             >
-              <div className="relative w-full opacity-90">
+              <div className="relative w-full opacity-90 mr-10">
                 <div
                   className={`absolute inset-0 bg-gradient-to-r from-gray-500/10 to-gray-300/10 rounded-3xl blur-3xl transition-all duration-700 ease-in-out ${
                     isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
