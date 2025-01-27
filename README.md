@@ -4,7 +4,7 @@ Welcome to my portfolio website! This is a showcase of my work, skills, and expe
 
 ## 🌐 Website
 
-Visit my portfolio: [https://sainath-protofolio.vercel.app/](https://bingisainath-portfolio.vercel.app/)
+Visit my portfolio: [https://bingisainath-portfolio.vercel.app/](https://bingisainath-portfolio.vercel.app/)
 
 ---
 
