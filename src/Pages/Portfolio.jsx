@@ -105,19 +105,24 @@ function a11yProps(index) {
 }
 
 const techStacks = [
+  { icon: "reactjs.svg", language: "React" },
+  { icon: "reactjs.svg", language: "React Native" },
+  { icon: "typescript.svg", language: "TypeScript" },
+  { icon: "javascript.svg", language: "JavaScript" },
+  { icon: "nodejs.svg", language: "Node.js" },
+  { icon: "express.svg", language: "Express.js" },
+  { icon: "redux.svg", language: "Redux Toolkit" },
+  { icon: "mongodb.svg", language: "MongoDB" },
+  { icon: "firebase.svg", language: "Firebase" },
+  { icon: "postgresql.svg", language: "PostgreSQL" },
+  { icon: "docker.svg", language: "Docker" },
+  { icon: "python.svg", language: "Python" },
+  { icon: "tailwind.svg", language: "Tailwind CSS" },
+  { icon: "MUI.svg", language: "Material UI" },
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
-  { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
-  { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "reactjs.svg", language: "React Native" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
   { icon: "vercel.svg", language: "Vercel" },
-  // { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "vite.svg", language: "Vite" },
 ];
 
 export default function FullWidthTabs() {
@@ -158,11 +163,6 @@ export default function FullWidthTabs() {
       setProjects(projectData);
       setCertificates(certificateData);
 
-      console.log("Projects");
-      console.log(projectData);
-      console.log("Certification");
-      console.log(certificateData);
-
       // Store in localStorage
       localStorage.setItem("projects", JSON.stringify(projectData));
       localStorage.setItem("certificates", JSON.stringify(certificateData));
@@ -193,12 +193,6 @@ export default function FullWidthTabs() {
   const displayedCertificates = showAllCertificates
     ? certificates
     : certificates.slice(0, initialItems);
-
-  console.log("projects global");
-  console.log(displayedProjects);
-  console.log("certificates global");
-  console.log(displayedCertificates);
-
 
   return (
     <div

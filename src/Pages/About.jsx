@@ -132,8 +132,8 @@ const AboutPage = () => {
         : 0);
 
     return {
-      totalProjects: 5, // Example data
-      totalCertificates: 2, // Example data
+      totalProjects: 5,
+      totalCertificates: 3,
       YearExperience: experience,
     };
   }, []);
@@ -166,7 +166,7 @@ const AboutPage = () => {
         icon: Globe,
         value: YearExperience,
         label: "Years of Experience",
-        description: "Focused on React and React Native",
+        description: "Full-stack web & mobile development",
         animation: "fade-left",
       },
     ],
@@ -226,10 +226,11 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I am a passionate React and React Native developer with over 2
-              years of experience. I specialize in creating intuitive and
-              responsive user interfaces, with a focus on delivering
-              high-quality applications.
+              Full-stack and mobile developer with nearly 3 years of experience
+              at Capgemini, specialising in React, React Native, Node.js, and
+              real-time systems (WebRTC, Socket.io). Published two IEEE papers
+              on IoT and Computer Vision. Currently pursuing an MSc in Computer
+              Science – Future Networked Systems at Trinity College Dublin.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
