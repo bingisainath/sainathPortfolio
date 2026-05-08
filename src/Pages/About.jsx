@@ -11,7 +11,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { db, collection } from "../firebase";
-import { getDocs, addDoc } from "firebase/firestore";
+import { getDocs, getCountFromServer } from "firebase/firestore";
 
 // Memoized Components
 const Header = memo(() => (
@@ -119,23 +119,41 @@ const StatCard = memo(
 const AboutPage = () => {
   const [resumeLink, setResumeLink] = useState("");
 
-  // Memoized calculations
-  const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
-    const startDate = new Date("2022-05-07");
-    const today = new Date();
-    const experience =
-      today.getFullYear() -
-      startDate.getFullYear() -
-      (today <
-      new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate())
-        ? 1
-        : 0);
+  const [totalProjects, setTotalProjects] = useState(0);
+  const [totalCertificates, setTotalCertificates] = useState(0);
 
-    return {
-      totalProjects: 5,
-      totalCertificates: 3,
-      YearExperience: experience,
+  const YearExperience = useMemo(() => {
+  const startDate = new Date("2022-07-05");
+  const endDate = new Date("2025-08-20");
+
+    return (
+      endDate.getFullYear() -
+      startDate.getFullYear() -
+      (endDate <
+      new Date(
+        endDate.getFullYear(),
+        startDate.getMonth(),
+        startDate.getDate()
+      )
+        ? 1
+        : 0)
+    );
+  }, []);
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const [projectSnap, certSnap] = await Promise.all([
+          getCountFromServer(collection(db, "projects")),
+          getCountFromServer(collection(db, "certificates")),
+        ]);
+        setTotalProjects(projectSnap.data().count);
+        setTotalCertificates(certSnap.data().count);
+      } catch (e) {
+        console.error("Error fetching counts:", e);
+      }
     };
+    fetchCounts();
   }, []);
 
   // Optimized AOS initialization
