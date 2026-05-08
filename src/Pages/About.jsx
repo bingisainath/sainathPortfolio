@@ -11,7 +11,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { db, collection } from "../firebase";
-import { getDocs, addDoc } from "firebase/firestore";
+import { getDocs, getCountFromServer } from "firebase/firestore";
 
 // Memoized Components
 const Header = memo(() => (
@@ -119,23 +119,41 @@ const StatCard = memo(
 const AboutPage = () => {
   const [resumeLink, setResumeLink] = useState("");
 
-  // Memoized calculations
-  const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
-    const startDate = new Date("2022-05-07");
-    const today = new Date();
-    const experience =
-      today.getFullYear() -
-      startDate.getFullYear() -
-      (today <
-      new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate())
-        ? 1
-        : 0);
+  const [totalProjects, setTotalProjects] = useState(0);
+  const [totalCertificates, setTotalCertificates] = useState(0);
 
-    return {
-      totalProjects: 5, // Example data
-      totalCertificates: 2, // Example data
-      YearExperience: experience,
+  const YearExperience = useMemo(() => {
+  const startDate = new Date("2022-07-05");
+  const endDate = new Date("2025-08-20");
+
+    return (
+      endDate.getFullYear() -
+      startDate.getFullYear() -
+      (endDate <
+      new Date(
+        endDate.getFullYear(),
+        startDate.getMonth(),
+        startDate.getDate()
+      )
+        ? 1
+        : 0)
+    );
+  }, []);
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const [projectSnap, certSnap] = await Promise.all([
+          getCountFromServer(collection(db, "projects")),
+          getCountFromServer(collection(db, "certificates")),
+        ]);
+        setTotalProjects(projectSnap.data().count);
+        setTotalCertificates(certSnap.data().count);
+      } catch (e) {
+        console.error("Error fetching counts:", e);
+      }
     };
+    fetchCounts();
   }, []);
 
   // Optimized AOS initialization
@@ -166,7 +184,7 @@ const AboutPage = () => {
         icon: Globe,
         value: YearExperience,
         label: "Years of Experience",
-        description: "Focused on React and React Native",
+        description: "Full-stack web & mobile development",
         animation: "fade-left",
       },
     ],
@@ -226,10 +244,11 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I am a passionate React and React Native developer with over 2
-              years of experience. I specialize in creating intuitive and
-              responsive user interfaces, with a focus on delivering
-              high-quality applications.
+              Full-stack and mobile developer with nearly 3 years of experience
+              at Capgemini, specialising in React, React Native, Node.js, and
+              real-time systems (WebRTC, Socket.io). Published two IEEE papers
+              on IoT and Computer Vision. Currently pursuing an MSc in Computer
+              Science – Future Networked Systems at Trinity College Dublin.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">

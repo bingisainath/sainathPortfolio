@@ -37,7 +37,7 @@ const MainTitle = memo(() => (
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-gray-500 to-gray-300 blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 bg-clip-text text-transparent">
-          Frontend
+          Full-Stack
         </span>
       </span>
       <br />
@@ -95,13 +95,13 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["React & React Native Developer", "AI and Tech Enthusiast", "MERN Stack Expert"];
+const WORDS = ["React & React Native Developer", "Full-Stack & Mobile Developer", "MERN Stack Expert", "AI and Tech Enthusiast"];
 const TECH_STACK = [
   "React",
-  "React-Native",
-  "Javascript",
+  "React Native",
+  "TypeScript",
   "Node.js",
-  "Tailwind",
+  "Socket.io",
 ];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/bingisainath" },
@@ -203,8 +203,8 @@ const Home = () => {
                   data-aos="fade-up"
                   data-aos-delay="1000"
                 >
-                  Building Scalable, Engaging, and User-Centric Applications
-                  with Expertise in React and React Native.
+                  Building scalable, high-performance web and mobile apps
+                  with React, React Native, Node.js, and real-time tech.
                 </p>
 
                 {/* Tech Stack */}
